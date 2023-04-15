@@ -26,4 +26,4 @@ const collegenotificationSchema = new Schema({
 })
 
 //name to import, schema , db name 
-module.exports=mongoose.model('collegenotification',collegenotificationSchema,'CollegeNotification');
+module.exports=mongoose.model('collegenotification',collegenotificationSchema,'Collegenotification');

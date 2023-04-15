@@ -8,14 +8,19 @@ const paperSchema = new Schema({
         type:String,
         required:true
     },
+    year:{
+        type:String,
+        required:true
+    },
+    type:{
+        type:String,
+        required:true
+    },
     link:{
         type:String,
         required:true
     },
-    year:{
-        type:String,
-        required:true
-    }
+    
 })
 
 //name to import, schema , db name 

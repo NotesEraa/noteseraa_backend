@@ -12,14 +12,15 @@ const articleSchema = new Schema({
         type:String,
         required:true
     },
-    description:{
-        type:String,
-        required:true
-    },
     author:{
         type:String,
         required:true
     },
+    description:{
+        type:String,
+        required:true
+    },
+  
     img_url:{
         type:String,
         required:true
@@ -29,4 +30,4 @@ const articleSchema = new Schema({
 })
 
 //name to import, schema , db name 
-module.exports=mongoose.model('article',articleSchema,'Article');
+module.exports=mongoose.model('articles',articleSchema,'Articles');

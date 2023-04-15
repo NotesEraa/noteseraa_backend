@@ -6,7 +6,7 @@ exports.getCommunitynotification=(req,res)=>{
         Communitynotification.find().then(result=>{
         res.status(200).json({
             message: `Notification Fetched Successfully`,
-           notifications:result
+            notifications:result
         });
     }).catch(error => {
         res.status(500).json({

@@ -2,8 +2,24 @@ const Notes = require("../Modals/Notes");
 
 
 exports.getNotes=(req,res)=>{
-    
-        Notes.find().then(result=>{
+    const {
+        subject,
+        semester,
+        program,
+        
+    } = req.body;
+        searchObj = {}
+        if (subject){
+            searchObj['subject'] = subject
+        }
+        if (semester){
+            searchObj['semester'] = semester
+        }
+        if (program){
+            searchObj['program'] = program
+        }
+
+        Notes.find(searchObj).then(result=>{
         res.status(200).json({
             message: `Notes Fetched Successfully`,
            notes:result

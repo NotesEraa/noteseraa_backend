@@ -10,16 +10,16 @@ const articles = require('../Controllers/Articles.js');
 const notes = require('../Controllers/Notes.js');
 
 router.get('/',testdata.getData)
-
+ 
 router.get('/users',users.getUsers);
 router.post('/signup',users.addUser);
-router.get('/Login',users.getLogin);
+router.post('/login',users.getLogin);
 router.get('/papers',papers.getPapers);
 router.get('/communitynotification',communitynotification.getCommunitynotification);
-router.get('/collegenotification',collegenotification.getCollegenotification);
+router.get('/collegenotification/:tag',collegenotification.getCollegenotification);
 router.get('/recentarticle',articles.getRecentArticle);
 router.get('/articles',articles.getArticles);
-router.get('/notes',notes.getNotes)
+router.post('/notes',notes.getNotes)
 
 
 

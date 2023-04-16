@@ -6,12 +6,14 @@ exports.getArticles=(req,res)=>{
         Articles.find().then(result=>{
         res.status(200).json({
             message: `Articles Fetched Successfully`,
-           articles:result
+           articles:result,
+           status:200
         });
     }).catch(error => {
         res.status(500).json({
             message: "Error in Database",
-            error: error
+            error: error,
+            status:500
         });
        })
 }
@@ -21,12 +23,14 @@ exports.getRecentArticle=(req,res)=>{
     Articles.find().then(result=>{
     res.status(200).json({
         message: `Articles Fetched Successfully`,
-       articles:result
+       articles:result[0],
+       status:200
     });
 }).catch(error => {
     res.status(500).json({
         message: "Error in Database",
-        error: error
+        error: error,
+        status:500
     });
    })
 }

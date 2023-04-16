@@ -4,13 +4,15 @@ exports.getUsers=(req,res)=>{
     
     Users.find().then(result=>{
         res.status(200).json({
-            message: `Filtered Results fetched`,
-           patient:result
+           message: `Filtered Results fetched`,
+           data:result,
+           status:200
         });
     }).catch(error => {
         res.status(500).json({
             message: "Error in Database",
-            error: error
+            error: error,
+            status:500
         });
        })
 }
@@ -37,12 +39,14 @@ exports.addUser=(req,res)=>{
     userObj.save().then(result => {
         res.status(200).json({
             message: "User Registered successfully !!",
-            user: result
+            user: result,
+            status:200
         });
     }).catch(error => {
         res.status(500).json({
             message: "Error in Database",
-            error: error
+            error: error,
+            status:500
         });
     });
 }
@@ -53,6 +57,7 @@ exports.getLogin=(req,res)=>{
         email,
         password
     } = req.body;
+    console.log(email)
     Users.find({
         email: email,
         password: password
@@ -61,18 +66,22 @@ exports.getLogin=(req,res)=>{
             res.status(200).json({
                 message: "User logged in successfully !!",
                 isLoggedIn: true,
-                user: result[0]
+                user: result[0],
+                data:result,
+                status:200
             });
         } else {
             res.status(400).json({
                 message: "Username or password is wrong",
-                isLoggedIn: false
+                isLoggedIn: false,
+                status:400
             });
         }
     }).catch(error => {
         res.status(500).json({
             message: "Error in Database",
-            error: error
+            error: error,
+            status:500
         });
        })
 }

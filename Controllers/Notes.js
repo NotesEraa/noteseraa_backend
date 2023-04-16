@@ -22,12 +22,14 @@ exports.getNotes=(req,res)=>{
         Notes.find(searchObj).then(result=>{
         res.status(200).json({
             message: `Notes Fetched Successfully`,
-           notes:result
+           notes:result,
+           status:200
         });
     }).catch(error => {
         res.status(500).json({
             message: "Error in Database",
-            error: error
+            error: error,
+            status:500
         });
        })
 }

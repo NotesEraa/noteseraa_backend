@@ -6,8 +6,8 @@ const Schema = mongoose.Schema;
 const articleSchema = new Schema({
     title:{
         type:String,
-        required:true
-    },
+        required:true 
+    }, 
     date:{
         type:String,
         required:true

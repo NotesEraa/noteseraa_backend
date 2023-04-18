@@ -23,6 +23,10 @@ const paperSchema = new Schema({
     year:{
         type:String,
         required:true
+    },
+    type:{
+        type:String,
+        required:true
     }
 
     

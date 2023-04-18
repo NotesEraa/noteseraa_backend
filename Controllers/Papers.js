@@ -6,6 +6,7 @@ exports.getPapers=(req,res)=>{
         subject,
         semester,
         program,
+        type
         
     } = req.body;
         searchObj = {}
@@ -14,6 +15,9 @@ exports.getPapers=(req,res)=>{
         }
         if (semester){
             searchObj['semester'] = semester
+        }
+        if (type){
+            searchObj['type']=type
         }
         if (program){
             searchObj['program'] = program

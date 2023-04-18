@@ -2,8 +2,24 @@ const Papers = require("../Modals/Papers");
 
 
 exports.getPapers=(req,res)=>{
-    
-        Papers.find().then(result=>{
+    const {
+        subject,
+        semester,
+        program,
+        
+    } = req.body;
+        searchObj = {}
+        if (subject){
+            searchObj['subject'] = subject
+        }
+        if (semester){
+            searchObj['semester'] = semester
+        }
+        if (program){
+            searchObj['program'] = program
+        }
+
+        Papers.find(searchObj).then(result=>{
         res.status(200).json({
             message: `Papers Fetched Successfully`,
            papers:result,

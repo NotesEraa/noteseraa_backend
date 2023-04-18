@@ -4,15 +4,15 @@ const nodemon = require('nodemon');
 const Schema = mongoose.Schema;
 
 const paperSchema = new Schema({
-    title:{
+    subject:{
         type:String,
         required:true
     },
-    year:{
+    semester:{
         type:String,
         required:true
     },
-    type:{
+    program:{
         type:String,
         required:true
     },
@@ -20,6 +20,11 @@ const paperSchema = new Schema({
         type:String,
         required:true
     },
+    year:{
+        type:String,
+        required:true
+    }
+
     
 })
 

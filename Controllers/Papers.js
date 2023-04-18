@@ -22,8 +22,10 @@ exports.getPapers=(req,res)=>{
         if (program){
             searchObj['program'] = program
         }
-
+        console.log(searchObj);
+        console.log("------");
         Papers.find(searchObj).then(result=>{
+        console.log(result)
         res.status(200).json({
             message: `Papers Fetched Successfully`,
            papers:result,

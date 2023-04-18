@@ -14,7 +14,7 @@ router.get('/',testdata.getData)
 router.get('/users',users.getUsers);
 router.post('/signup',users.addUser);
 router.post('/login',users.getLogin);
-router.get('/papers',papers.getPapers);
+router.post('/papers',papers.getPapers);
 router.get('/communitynotification',communitynotification.getCommunitynotification);
 router.get('/collegenotification/:tag',collegenotification.getCollegenotification);
 router.get('/recentarticle',articles.getRecentArticle);

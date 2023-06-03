@@ -23,7 +23,8 @@ exports.addUser=(req,res)=>{
         first_name,
         last_name,
         email,
-        password
+        password,
+        date= new Date()
     } = req.body;
     console.log(first_name)
     const userObj = new Users({

@@ -1,5 +1,5 @@
 const Notes = require("../Modals/Notes");
-
+const PostReqNotesData = require("../Modals/PostReqNotesData");
 
 exports.getNotes=(req,res)=>{
     const {
@@ -18,10 +18,28 @@ exports.getNotes=(req,res)=>{
         if (program){
             searchObj['program'] = program
         }
-
+        let date_ob = new Date();
+        let date = ("0" + date_ob.getDate()).slice(-2);
+         // current month
+        let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        // current year
+        let year = date_ob.getFullYear();
+        let date_ = year + "-" + month + "-" + date;
+        const notesObj = new PostReqNotesData({
+            subject : searchObj.subject,
+            semester : searchObj.semester,
+            program: searchObj.program,
+            date: date_
+        });
+        notesObj.save();
+        
         Notes.find(searchObj).then(result=>{
+        // PostReqData.updateOne(
+        //         { _id: '64782bdeba779a88e451e79a'},
+        //         { $push: { notes: searchObj } }
+        //     )
         res.status(200).json({
-            message: `Notes Fetched Successfully`,
+           message: `Notes Fetched Successfully`,
            notes:result,
            status:200
         });

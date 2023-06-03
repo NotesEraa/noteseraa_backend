@@ -1,22 +1,18 @@
 const mongoose=require('mongoose');
-const nodemon = require('nodemon');
+
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-    first_name:{
+const PosReqPapersDataSchema = new Schema({
+    subject:{
         type:String,
         required:true
     },
-    last_name:{
+    semester:{
         type:String,
         required:true
     },
-    email:{
-        type:String,
-        required:true
-    },
-    password:{
+    program:{
         type:String,
         required:true
     },
@@ -27,4 +23,4 @@ const userSchema = new Schema({
 })
 
 //name to import, schema , db name 
-module.exports=mongoose.model('users',userSchema,'Users');
+module.exports=mongoose.model('PostReqPapersData',PosReqPapersDataSchema,'PostReqPapersData');

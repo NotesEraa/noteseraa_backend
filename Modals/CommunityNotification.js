@@ -29,4 +29,4 @@ const communitynotificationSchema = new Schema({
 })
 
 //name to import, schema , db name 
-module.exports=mongoose.model('communitynotification',communitynotificationSchema,'CommunityNotification');
+module.exports=mongoose.model('communitynotification',communitynotificationSchema,'Communitynotification');

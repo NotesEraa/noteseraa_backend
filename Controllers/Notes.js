@@ -51,3 +51,38 @@ exports.getNotes=(req,res)=>{
         });
        })
 }
+
+
+exports.addNotes=(req,res)=>{
+    //write add method
+    const {
+        subject,
+        semester,
+        program,
+        link,
+    } = req.body;
+    
+    const notesObj = new Notes({
+        subject: subject,
+        semester : semester,
+        program : program,
+        link : link,
+       
+    });
+
+    console.log(notesObj);
+    // we will call a save method on this object
+    notesObj.save().then(result => {
+        res.status(200).json({
+            message: "notes added successfully !!",
+            notes: result,
+            status:200
+        });
+    }).catch(error => {
+        res.status(500).json({
+            message: "Error in Database",
+            error: error,
+            status:500
+        });
+    });
+}

@@ -14,13 +14,19 @@ router.get('/',testdata.getData)
 router.get('/users',users.getUsers);
 router.post('/signup',users.addUser);
 router.post('/login',users.getLogin);
+
 router.post('/papers',papers.getPapers);
+router.post('/addpaper',papers.addPaper);
+
 router.get('/communitynotification',communitynotification.getCommunitynotification);
+router.post('/addcommunitynotification',communitynotification.addCommunityNotification);
+
 router.get('/collegenotification/:tag',collegenotification.getCollegenotification);
 router.get('/recentarticle',articles.getRecentArticle);
 router.get('/articles',articles.getArticles);
-router.post('/notes',notes.getNotes)
-
+router.post('/addarticle',articles.addArticle);
+router.post('/notes',notes.getNotes);
+router.post('/addnotes',notes.addNotes);
 
 
 
